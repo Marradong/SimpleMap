@@ -96,6 +96,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Combined.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Combined.Designer.cs">
+      <DependentUpon>Combined.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GeoRegister\RegisterImageMapClt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GeoRegister\RegisterImageMapClt.Designer.cs">
+      <DependentUpon>RegisterImageMapClt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ImageRegister-CtlPts\PointReferenceCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,6 +210,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Controls\GeoRegister\RegisterImageMapClt.resx">
+      <DependentUpon>RegisterImageMapClt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ImageRegister-CtlPts\PointReferenceCtl.resx">
       <DependentUpon>PointReferenceCtl.cs</DependentUpon>
     </EmbeddedResource>

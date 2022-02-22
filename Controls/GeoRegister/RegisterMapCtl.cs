@@ -123,29 +123,29 @@ namespace SimpleMap.Controls
         {
             //Flattening the Earth: Two Thousand Years of Map Projections by John P.Snyder
             //Non-projected lat - lon formated images via worldfile, Using SRS defined as EPSG id 4326
-            /*
+
             double lat1, lat2;
             double lon1, lon2;
 
-            double.TryParse(txtLat1.Text, out lat1);
-            if (lat1neg.Text != "N")
-                lat1 = 0 - lat1;
+            double.TryParse(Lat_TL.Text, out lat1);
+            //if (lat1neg.Text != "N")
+            //    lat1 = 0 - lat1;
 
-            double.TryParse(txtLon1.Text, out lon1);
-            if (lon1neg.Text != "W")
-                lon1 = 0 - lon1;
+            double.TryParse(Lon_TL.Text, out lon1);
+            //if (lon1neg.Text != "W")
+            //    lon1 = 0 - lon1;
 
-            double.TryParse(txtLat2.Text, out lat2);
-            if (lat2neg.Text != "N")
-                lat2 = 0 - lat2;
+            double.TryParse(Lat_BR.Text, out lat2);
+            //if (lat2neg.Text != "N")
+            //    lat2 = 0 - lat2;
 
-            double.TryParse(txtLon2.Text, out lon2);
-            if (lon1neg.Text != "W")
-                lon2 = 0 - lon2;
+            double.TryParse(Lon_BR.Text, out lon2);
+            //if (lon1neg.Text != "W")
+            //    lon2 = 0 - lon2;
 
-            //int xsize, ysize;
-            //int.TryParse(txtxsize.Text, out xsize);
-            //int.TryParse(txtysize.Text, out ysize);
+            int xsize, ysize;
+            int.TryParse(txtxsize, out xsize);
+            int.TryParse(txtysize, out ysize);
 
             if (lon1 < lon2)
             {
@@ -169,8 +169,14 @@ namespace SimpleMap.Controls
                     lon2.ToString() + "\n" +
                     lat2.ToString();
 
+            txtWorldfile.Text = ppx.ToString() + "\n" +
+                    "0.00000\n0.00000\n" +
+                    ppy.ToString() + "\n" +
+                    lon2.ToString() + "\n" +
+                    lat2.ToString();
+
             Worldfile = wf;
-            */
+
         }
 
        

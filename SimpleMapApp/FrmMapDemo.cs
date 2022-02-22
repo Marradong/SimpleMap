@@ -162,7 +162,7 @@ namespace SimpleMapApp
             
             //Test  loading a georeferenced image 
             
-            string GeorefImage = Path.Combine(statupPath, "GeoRefImage.jpg");
+            string GeorefImage = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Grid.jpg");
             //mapCtl1.GraphicLayer
             mapCtl1.LoadGeoRefImage(GeorefImage, "TestGeoRefLayer");
 

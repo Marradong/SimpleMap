@@ -142,6 +142,7 @@ namespace SimpleMap.Controls
             // 
             // txtWorldfile
             // 
+            this.txtWorldfile.AcceptsReturn = true;
             this.txtWorldfile.Location = new System.Drawing.Point(152, 35);
             this.txtWorldfile.Multiline = true;
             this.txtWorldfile.Name = "txtWorldfile";
@@ -163,7 +164,7 @@ namespace SimpleMap.Controls
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(77, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 20);
+            this.label9.Size = new System.Drawing.Size(54, 13);
             this.label9.TabIndex = 34;
             this.label9.Text = "World File";
             // 
@@ -194,7 +195,7 @@ namespace SimpleMap.Controls
             this.rbCornersTL_BR.Checked = true;
             this.rbCornersTL_BR.Location = new System.Drawing.Point(31, 31);
             this.rbCornersTL_BR.Name = "rbCornersTL_BR";
-            this.rbCornersTL_BR.Size = new System.Drawing.Size(224, 24);
+            this.rbCornersTL_BR.Size = new System.Drawing.Size(152, 17);
             this.rbCornersTL_BR.TabIndex = 0;
             this.rbCornersTL_BR.TabStop = true;
             this.rbCornersTL_BR.Text = "2 Point, Rectangle Corners";
@@ -206,7 +207,7 @@ namespace SimpleMap.Controls
             this.rb4Pt_AffineRotation.AutoSize = true;
             this.rb4Pt_AffineRotation.Location = new System.Drawing.Point(227, 31);
             this.rb4Pt_AffineRotation.Name = "rb4Pt_AffineRotation";
-            this.rb4Pt_AffineRotation.Size = new System.Drawing.Size(182, 24);
+            this.rb4Pt_AffineRotation.Size = new System.Drawing.Size(122, 17);
             this.rb4Pt_AffineRotation.TabIndex = 1;
             this.rb4Pt_AffineRotation.Text = "4 = Affine && Rotation";
             this.rb4Pt_AffineRotation.UseVisualStyleBackColor = true;
@@ -237,14 +238,14 @@ namespace SimpleMap.Controls
             // 
             this.Lon_BR.Location = new System.Drawing.Point(241, 172);
             this.Lon_BR.Name = "Lon_BR";
-            this.Lon_BR.Size = new System.Drawing.Size(167, 26);
+            this.Lon_BR.Size = new System.Drawing.Size(167, 20);
             this.Lon_BR.TabIndex = 52;
             // 
             // Lon_BL
             // 
             this.Lon_BL.Location = new System.Drawing.Point(36, 172);
             this.Lon_BL.Name = "Lon_BL";
-            this.Lon_BL.Size = new System.Drawing.Size(167, 26);
+            this.Lon_BL.Size = new System.Drawing.Size(167, 20);
             this.Lon_BL.TabIndex = 51;
             this.Lon_BL.Visible = false;
             // 
@@ -252,7 +253,7 @@ namespace SimpleMap.Controls
             // 
             this.Lon_TR.Location = new System.Drawing.Point(241, 80);
             this.Lon_TR.Name = "Lon_TR";
-            this.Lon_TR.Size = new System.Drawing.Size(167, 26);
+            this.Lon_TR.Size = new System.Drawing.Size(167, 20);
             this.Lon_TR.TabIndex = 50;
             this.Lon_TR.Visible = false;
             // 
@@ -260,7 +261,7 @@ namespace SimpleMap.Controls
             // 
             this.Lon_TL.Location = new System.Drawing.Point(36, 79);
             this.Lon_TL.Name = "Lon_TL";
-            this.Lon_TL.Size = new System.Drawing.Size(167, 26);
+            this.Lon_TL.Size = new System.Drawing.Size(167, 20);
             this.Lon_TL.TabIndex = 49;
             // 
             // rbBR
@@ -270,7 +271,7 @@ namespace SimpleMap.Controls
             this.rbBR.Location = new System.Drawing.Point(241, 119);
             this.rbBR.Name = "rbBR";
             this.rbBR.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rbBR.Size = new System.Drawing.Size(128, 24);
+            this.rbBR.Size = new System.Drawing.Size(86, 17);
             this.rbBR.TabIndex = 48;
             this.rbBR.TabStop = true;
             this.rbBR.Text = "Bottom Right";
@@ -283,7 +284,7 @@ namespace SimpleMap.Controls
             this.rbTR.Location = new System.Drawing.Point(241, 24);
             this.rbTR.Name = "rbTR";
             this.rbTR.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rbTR.Size = new System.Drawing.Size(103, 24);
+            this.rbTR.Size = new System.Drawing.Size(72, 17);
             this.rbTR.TabIndex = 47;
             this.rbTR.TabStop = true;
             this.rbTR.Text = "Top Right";
@@ -294,7 +295,7 @@ namespace SimpleMap.Controls
             // 
             this.Lat_TR.Location = new System.Drawing.Point(241, 54);
             this.Lat_TR.Name = "Lat_TR";
-            this.Lat_TR.Size = new System.Drawing.Size(167, 26);
+            this.Lat_TR.Size = new System.Drawing.Size(167, 20);
             this.Lat_TR.TabIndex = 45;
             this.Lat_TR.Visible = false;
             // 
@@ -302,7 +303,7 @@ namespace SimpleMap.Controls
             // 
             this.Lat_BR.Location = new System.Drawing.Point(241, 149);
             this.Lat_BR.Name = "Lat_BR";
-            this.Lat_BR.Size = new System.Drawing.Size(167, 26);
+            this.Lat_BR.Size = new System.Drawing.Size(167, 20);
             this.Lat_BR.TabIndex = 46;
             // 
             // rbBL
@@ -312,7 +313,7 @@ namespace SimpleMap.Controls
             this.rbBL.Location = new System.Drawing.Point(36, 119);
             this.rbBL.Name = "rbBL";
             this.rbBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rbBL.Size = new System.Drawing.Size(118, 24);
+            this.rbBL.Size = new System.Drawing.Size(79, 17);
             this.rbBL.TabIndex = 44;
             this.rbBL.TabStop = true;
             this.rbBL.Text = "Bottom Left";
@@ -327,7 +328,7 @@ namespace SimpleMap.Controls
             this.rbTL.Location = new System.Drawing.Point(36, 24);
             this.rbTL.Name = "rbTL";
             this.rbTL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rbTL.Size = new System.Drawing.Size(93, 24);
+            this.rbTL.Size = new System.Drawing.Size(65, 17);
             this.rbTL.TabIndex = 43;
             this.rbTL.TabStop = true;
             this.rbTL.Text = "Top Left";
@@ -337,14 +338,14 @@ namespace SimpleMap.Controls
             // 
             this.Lat_TL.Location = new System.Drawing.Point(36, 54);
             this.Lat_TL.Name = "Lat_TL";
-            this.Lat_TL.Size = new System.Drawing.Size(167, 26);
+            this.Lat_TL.Size = new System.Drawing.Size(167, 20);
             this.Lat_TL.TabIndex = 34;
             // 
             // Lat_BL
             // 
             this.Lat_BL.Location = new System.Drawing.Point(36, 149);
             this.Lat_BL.Name = "Lat_BL";
-            this.Lat_BL.Size = new System.Drawing.Size(167, 26);
+            this.Lat_BL.Size = new System.Drawing.Size(167, 20);
             this.Lat_BL.TabIndex = 40;
             this.Lat_BL.Visible = false;
             // 
@@ -365,7 +366,7 @@ namespace SimpleMap.Controls
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(66, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 20);
+            this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 55;
             this.label3.Text = "Longitude";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -375,7 +376,7 @@ namespace SimpleMap.Controls
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(78, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 54;
             this.label2.Text = "Latitude";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -384,14 +385,14 @@ namespace SimpleMap.Controls
             // 
             this.txtLon.Location = new System.Drawing.Point(139, 28);
             this.txtLon.Name = "txtLon";
-            this.txtLon.Size = new System.Drawing.Size(167, 26);
+            this.txtLon.Size = new System.Drawing.Size(167, 20);
             this.txtLon.TabIndex = 53;
             // 
             // txtLat
             // 
             this.txtLat.Location = new System.Drawing.Point(139, 5);
             this.txtLat.Name = "txtLat";
-            this.txtLat.Size = new System.Drawing.Size(167, 26);
+            this.txtLat.Size = new System.Drawing.Size(167, 20);
             this.txtLat.TabIndex = 52;
             // 
             // RegisterMapCtl

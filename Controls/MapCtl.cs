@@ -230,7 +230,7 @@ namespace SimpleMap.Controls
         {
             if (File.Exists(ImagefileName))
             {
-                _imageLayer.LoadGeoRefImage(ImagefileName, LayerName);
+                _imageLayer.LoadGeoRefImage(LayerName, ImagefileName);
 
                 // base.CenterCoordinate
                 ///base.Width = _image.Width;

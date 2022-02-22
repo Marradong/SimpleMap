@@ -49,7 +49,7 @@ namespace SimpleMap.Layers
         private Image _tmpImage;
 
         [NonSerialized]
-        public WorldFile worldFile;
+        public WorldFile worldFile = new WorldFile();
 
         private float _transparency;
 
