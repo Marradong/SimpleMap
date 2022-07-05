@@ -57,77 +57,101 @@ namespace SimpleMap.Controls.GeoRegister
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
+            /*
+             * World files (.wld) consist of 6 numbers
+             * 1. pixel size in the x direction
+             * 2. rotation about the y axis
+             * 3. rotation about the x axis
+             * 4. pixel size in y direction
+             * 5. lon of the top left pixel
+             * 6. lat of the top left pixel
+             */
+            
             double lat1, lat2;
             double lon1, lon2;
-
-            double.TryParse(Lat_TL.Text, out lat1);
-            //if (lat1neg.Text != "N")
-            //    lat1 = 0 - lat1;
-
-            double.TryParse(Lon_TL.Text, out lon1);
-            //if (lon1neg.Text != "W")
-            //    lon1 = 0 - lon1;
-
-            double.TryParse(Lat_BR.Text, out lat2);
-            //if (lat2neg.Text != "N")
-            //    lat2 = 0 - lat2;
-
-            double.TryParse(Lon_BR.Text, out lon2);
-            //if (lon1neg.Text != "W")
-            //    lon2 = 0 - lon2;
-
-            int xsize, ysize;
-            int.TryParse(txtxsize.Text, out xsize);
-            int.TryParse(txtysize.Text, out ysize);
-
-            if (lon1 < lon2)
+            if (rbCornersTL_BR.Checked)
             {
-                var t = +lon1;
-                lon1 = lon2;
-                lon2 = t;
+
+                double.TryParse(Lat_TL.Text, out lat1);
+                //if (lat1neg.Text != "N")
+                //    lat1 = 0 - lat1;
+
+                double.TryParse(Lon_TL.Text, out lon1);
+                //if (lon1neg.Text != "W")
+                //    lon1 = 0 - lon1;
+
+                double.TryParse(Lat_BR.Text, out lat2);
+                //if (lat2neg.Text != "N")
+                //    lat2 = 0 - lat2;
+
+                double.TryParse(Lon_BR.Text, out lon2);
+                //if (lon1neg.Text != "W")
+                //    lon2 = 0 - lon2;
+
+                int xsize, ysize;
+                int.TryParse(txtxsize.Text, out xsize);
+                int.TryParse(txtysize.Text, out ysize);
+
+                if (lon1 < lon2)
+                {
+                    var t = +lon1;
+                    lon1 = lon2;
+                    lon2 = t;
+                }
+                var ppx = (lon1 - lon2) / xsize;
+                if (lat1 > lat2)
+                {
+                    var t = +lat1;
+                    lat1 = lat2;
+                    lat2 = t;
+                }
+                var ppy = (lat1 - lat2) / ysize;
+
+                lon2 += (ppx / 2); // x center of pixel
+                lat2 += (ppy / 2); // y center of pixel
+                var wf = ppx.ToString() + "\n" +
+                        "0.00000" + "\n" +
+                        "0.00000" + "\n" +
+                        ppy.ToString() + "\n" +
+                        lon2.ToString() + "\n" +
+                        lat2.ToString();
+
+                txtWorldfile.Text = ppx.ToString() + "\n" +
+                        "0.00000" + "\n" +
+                        "0.00000" + "\n" +
+                        ppy.ToString() + "\n" +
+                        lon2.ToString() + "\n" +
+                        lat2.ToString();
+
+                Worldfile = wf;
             }
-            var ppx = (lon1 - lon2) / xsize;
-            if (lat1 > lat2)
+            else
             {
-                var t = +lat1;
-                lat1 = lat2;
-                lat2 = t;
+                //Todo
             }
-            var ppy = (lat1 - lat2) / ysize;
-            lon2 += (ppx / 2); // x center of pixel
-            lat2 += (ppy / 2); // y center of pixel
-            var wf = ppx.ToString() + "\n" +
-                    "0.00000" + "\n" + 
-                    "0.00000" + "\n" +
-                    ppy.ToString() + "\n" +
-                    lon2.ToString() + "\n" +
-                    lat2.ToString();
-
-            txtWorldfile.Text = ppx.ToString() + "\n" +
-                    "0.00000" + "\n" +
-                    "0.00000" + "\n" +
-                    ppy.ToString() + "\n" +
-                    lon2.ToString() + "\n" +
-                    lat2.ToString();
-
-            Worldfile = wf;
         }
 
         private void btnCacheAllMap_Click(object sender, EventArgs e)
         {
             string str = Path.GetFileNameWithoutExtension(_OriginalImageFileName);
-            
-            string fileName = str + ".wld";
-            // Check if file already exists. If yes, delete it.     
-            if (File.Exists(fileName))
-            {
-                File.Delete(fileName);
-            }
+            string initpath = Path.GetDirectoryName(_OriginalImageFileName);
 
-            // Create a new file     
-            using (StreamWriter fs = File.CreateText(fileName))
+            SaveFileDialog sv = new SaveFileDialog();
+            sv.InitialDirectory = initpath;
+            sv.DefaultExt = "wld";
+            sv.FileName = str;
+
+            if (sv.ShowDialog() == DialogResult.OK)
             {
-                fs.Write(Worldfile);
+                if (File.Exists(sv.FileName))
+                {
+                    File.Delete(sv.FileName);
+                }
+
+                using (StreamWriter fs = File.CreateText(sv.FileName))
+                {
+                    fs.Write(Worldfile);
+                }
             }
         }
 
@@ -153,6 +177,8 @@ namespace SimpleMap.Controls.GeoRegister
                 try
                 {
                     _OriginalImage = Image.FromFile(openFileDialog.FileName);
+                    txtxsize.Text = _OriginalImage.Width.ToString();
+                    txtysize.Text = _OriginalImage.Height.ToString();
                     _OriginalImageFileName = openFileDialog.FileName;
                     ResizeAndDisplayImage();
                 }
@@ -468,9 +494,15 @@ namespace SimpleMap.Controls.GeoRegister
                 Lat_TL.Text = Lat;
                 Lon_TL.Text = Lon;
                 if (rb4Pt_AffineRotation.Checked)
+                {
+                    rbTL.Checked = false;
                     rbBL.Checked = true;
+                }
                 else
+                {
+                    rbTL.Checked = false;
                     rbBR.Checked = true;
+                }
                 return;
             }
 
@@ -479,9 +511,15 @@ namespace SimpleMap.Controls.GeoRegister
                 Lat_BL.Text = Lat;
                 Lon_BL.Text = Lon;
                 if (rb4Pt_AffineRotation.Checked)
+                {
+                    rbBL.Checked = false;
                     rbTR.Checked = true;
+                }
                 else
+                {
+                    rbBL.Checked = false;
                     rbBR.Checked = true;
+                }
                 return;
             }
 
@@ -489,6 +527,7 @@ namespace SimpleMap.Controls.GeoRegister
             {
                 Lat_TR.Text = Lat;
                 Lon_TR.Text = Lon;
+                rbTR.Checked = false;
                 rbBR.Checked = true;
                 return;
             }
@@ -497,7 +536,8 @@ namespace SimpleMap.Controls.GeoRegister
             {
                 Lat_BR.Text = Lat;
                 Lon_BR.Text = Lon;
-                rbBR.Checked = true;
+                rbBR.Checked = false;
+                rbTL.Checked = true;
                 return;
             }
         }
