@@ -59,14 +59,19 @@ namespace SimpleMap.Controls.GeoRegister
         {
             /*
              * World files (.wld) consist of 6 numbers
-             * 1. pixel size in the x direction
-             * 2. rotation about the y axis
-             * 3. rotation about the x axis
-             * 4. pixel size in y direction
+             * 1. pixel size in the x direction →
+             * 2. rotation about the y axis  ↓
+             * 3. rotation about the x axis  ←
+             * 4. pixel size in y direction  ↓
              * 5. lon of the top left pixel
              * 6. lat of the top left pixel
+             *     ← 3    1 → 
+             *    4   /⎺⎺⎺⎻⎻⎻⎼⎼⎼⎽⎽⎽ ↓ 2
+             *    ↓  /      /
+             *      /      /
+             *      ⎺⎺⎺⎻⎻⎻⎼⎼⎼⎽⎽⎽/
              */
-            
+
             double lat1, lat2;
             double lon1, lon2;
             if (rbCornersTL_BR.Checked)
